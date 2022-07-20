@@ -1,0 +1,507 @@
+.meal-type :nth-child(2) {
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+}
+
+.meal-type :nth-child(3) {
+  -webkit-animation-delay: 0.75s;
+          animation-delay: 0.75s;
+}
+
+.meal-type :nth-child(4) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+
+.meal-type :nth-child(5) {
+  -webkit-animation-delay: 1.25s;
+          animation-delay: 1.25s;
+}
+
+.meal-type :nth-child(6) {
+  -webkit-animation-delay: 1.5s;
+          animation-delay: 1.5s;
+}
+
+.meal-type :nth-child(7) {
+  -webkit-animation-delay: 1.75s;
+          animation-delay: 1.75s;
+}
+
+.meal-type :nth-child(8) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+
+.meal-type :nth-child(9) {
+  -webkit-animation-delay: 2.25s;
+          animation-delay: 2.25s;
+}
+
+.meal-type :nth-child(10) {
+  -webkit-animation-delay: 2.5s;
+          animation-delay: 2.5s;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: grey;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body h1 {
+  font-size: 1.5rem;
+}
+
+body h2 {
+  font-size: 1rem;
+}
+
+body p {
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 920px) {
+  body h1 {
+    font-size: 1.7rem;
+  }
+}
+
+/*-----------loader----------*/
+@-webkit-keyframes loader-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes loader-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loader-bg {
+  0% {
+    opacity: 1;
+    z-index: 5;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    z-index: 5;
+  }
+}
+
+@keyframes loader-bg {
+  0% {
+    opacity: 1;
+    z-index: 5;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    z-index: 5;
+  }
+}
+
+/*-------favorite btn-----*/
+@-webkit-keyframes favorite-active {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes favorite-active {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes favorite-inactive {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes favorite-inactive {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*-------meal card-------*/
+@-webkit-keyframes meal-card {
+  0% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes meal-card {
+  0% {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+.features-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 50px;
+}
+
+@media only screen and (min-width: 920px) {
+  .features-container {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.feature {
+  width: 80%;
+  margin: 0 auto 70px auto;
+  text-align: center;
+}
+
+@media only screen and (min-width: 920px) {
+  .feature {
+    width: 25%;
+  }
+}
+
+.feature__icon {
+  width: 150px;
+  border: 10px solid #00bc77;
+  border-radius: 50%;
+  padding: 1rem;
+}
+
+.feature__title {
+  font-size: 1.25rem;
+}
+
+.info-card {
+  background-color: white;
+  width: 85%;
+  margin: 30px auto;
+  text-align: left;
+  padding-top: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media only screen and (min-width: 920px) {
+  .info-card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+.info-card__content {
+  width: 85%;
+  margin: auto;
+}
+
+@media only screen and (min-width: 920px) {
+  .info-card__content {
+    width: 300px;
+    margin: auto 0 20px 30px;
+  }
+}
+
+.info-card__title {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.info-card__balance {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.info-card__balance-type {
+  margin: 0;
+}
+
+.info-card__button {
+  width: 85%;
+  margin: 20px auto;
+  height: 35px;
+  background-color: #00bc77;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+@media only screen and (min-width: 920px) {
+  .info-card__button {
+    width: 200px;
+    margin: auto 30px auto auto;
+  }
+}
+
+.modal__form {
+  width: 300px;
+  margin: auto;
+}
+
+@media only screen and (min-width: 920px) {
+  .modal__form {
+    width: 400px;
+  }
+}
+
+.modal__form input {
+  width: 85%;
+  margin: 10px auto;
+  height: 30px;
+  padding-left: 10px;
+}
+
+@media only screen and (min-width: 920px) {
+  .modal__form input {
+    width: 40%;
+    margin: 10px 5px;
+  }
+}
+
+.modal__form button {
+  width: 40%;
+  height: 30px;
+  border: 1px solid #00bc77;
+  color: #00bc77;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 920px) {
+  .modal__form button {
+    width: 25%;
+    margin: 0 5px;
+  }
+}
+
+footer {
+  border-top: 2px solid #ccc;
+  height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+}
+
+footer p {
+  margin: 0;
+}
+
+.homepage {
+  min-height: 89vh;
+  background-color: white;
+}
+
+.hero {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  background-size: cover;
+  background-position: 0 -50px;
+  background-repeat: no-repeat;
+}
+
+@media only screen and (min-width: 920px) {
+  .hero {
+    height: 400px;
+    background-position: 0% 33%;
+  }
+}
+
+.hero-content {
+  background-color: white;
+  width: 250px;
+  padding: 2rem;
+  margin: 0 auto;
+  position: relative;
+  top: 2rem;
+}
+
+@media only screen and (min-width: 920px) {
+  .hero-content {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 350px;
+    margin: 2rem;
+  }
+}
+
+.hero-content__subtitle {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 920px) {
+  .hero-content__subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+.hero-content__text {
+  margin-bottom: 0;
+  font-size: 0.9rem;
+}
+
+@media only screen and (min-width: 920px) {
+  .hero-content__text {
+    font-size: 1.2rem;
+  }
+}
+
+.login__page {
+  padding-top: 40px;
+}
+
+.login__form {
+  padding: 2rem;
+  width: 300px;
+  margin: 0 auto;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login__form label {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  font-weight: 600;
+}
+
+.login__form button {
+  width: 100%;
+  height: 35px;
+  color: white;
+  text-decoration: underline;
+  font-size: 1.1rem;
+  background-color: #00bc77;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.rememberMe {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin: 0 0 10px 0;
+}
+
+.rememberMe label {
+  font-weight: 500;
+}
+
+.rememberMe input {
+  cursor: pointer;
+}
+
+.text-input {
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+}
+
+.profile {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.profile__title {
+  color: white;
+  margin: 2px auto;
+}
+
+.button-edit-name {
+  background-color: #00bc77;
+  color: white;
+  height: 35px;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=App.css.map */
