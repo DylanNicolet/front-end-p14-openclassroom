@@ -1,15 +1,35 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateFirstName, updateLastName, updateDateOfBirth, updateStartDate, updateStreet, updateCity, updateZipCode } from "../redux/formDataSlice";
+import { updateFirstName, updateLastName, updateDateOfBirth, updateStartDate, updateStreet, updateCity, updateZipCode, updateState, updateDepartment } from "../redux/formDataSlice";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
+import DatePicker from "react-date-picker";
+import Modal from "react-modal";
 
 export default function FormCreateEmployee(){
     const firstName = useSelector((state) => state.formData.firstName)
     const lastName = useSelector((state) => state.formData.lastName)
+    const dateOfBirth = useSelector((state) => state.formData.dateOfBirth)
+    const startDate = useSelector((state) => state.formData.startDate)
     const street = useSelector((state) => state.formData.street)
     const city = useSelector((state) => state.formData.city)
     const zipCode = useSelector((state) => state.formData.zipCode)
 
     const dispatch = useDispatch()
+
+    const stateNames = [
+        'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
+        'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas',
+        'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 
+        'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 
+        'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon',
+        'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 
+        'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+    ];
+
+    const department = [
+        "Sales", "Marketing", "Engineering", "Human Resources", "Legal"
+    ]
 
     return(
         <form>
@@ -32,18 +52,12 @@ export default function FormCreateEmployee(){
             />
 
             <label htmlFor="dateOfBirth">Date of Birth</label>
-            <input 
-                type="date"
-                name="dateOfBirth"
-                onChange={e => dispatch(updateDateOfBirth(e.target.value))}
-            />
+            <DatePicker name="dateOfBirth" value={dateOfBirth} onChange={(e) => dispatch(updateDateOfBirth(e))} />
 
             <label htmlFor="startDate">Start Date</label>
-            <input 
-                type="date"
-                name="startDate"
-                onChange={e => dispatch(updateStartDate(e.target.value))}
-            />
+            <DatePicker name="startDate" value={startDate} onChange={(e) => dispatch(updateStartDate(e))} />
+
+            
 
             <fieldset>
                 <legend>Address</legend>
@@ -63,6 +77,10 @@ export default function FormCreateEmployee(){
                     value={city}
                     onChange={e => dispatch(updateCity(e.target.value))}
                 />
+
+                <label htmlFor="state">State</label>
+                <Dropdown name="state" options={stateNames} value={stateNames[0]} onChange={e => dispatch(updateState(e.value))}/>
+
                 <label htmlFor="zipCode">Zip Code</label>
                 <input 
                     type="text"
@@ -72,7 +90,10 @@ export default function FormCreateEmployee(){
                 />
             </fieldset>
 
-            
+            <label htmlFor="department">Department</label>
+            <Dropdown name="department" options={department} value={department[0]} onChange={e => dispatch(updateDepartment(e.value))}/>
+
+            <button>Save</button>
         </form>
     )
 }

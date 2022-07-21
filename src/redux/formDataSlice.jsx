@@ -9,7 +9,9 @@ export const formDataSlice = createSlice({
         startDate: "",
         street: "",
         city: "",
+        state: "Alabama",
         zipCode: "",
+        department: "Sales",
     },
     reducers:{
         updateFirstName: (state, action) => {
@@ -30,12 +32,18 @@ export const formDataSlice = createSlice({
         updateCity: (state, action) => {
             state.city = action.payload
         },
+        updateState: (state, action) => {
+            state.state = action.payload
+        },
         updateZipCode: (state, action) => {
             state.zipCode = action.payload
+        },
+        updateDepartment: (state, action) => {
+            state.department = action.payload
         }
     },
 })
 
-export const {updateFirstName, updateLastName, updateDateOfBirth, updateStartDate, updateStreet, updateCity, updateZipCode} = formDataSlice.actions
+export const {updateFirstName, updateLastName, updateDateOfBirth, updateStartDate, updateStreet, updateCity, updateState, updateZipCode, updateDepartment} = formDataSlice.actions
 
 export default formDataSlice.reducer
