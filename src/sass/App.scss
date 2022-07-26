@@ -7,14 +7,10 @@
 @import "./base/typography";
 @import "./base/keyframes";
 
-@import "./components/feature";
-@import "./components/info-card";
-@import "./components/edit-name-modal";
-
+@import "./components/form-create-employee";
+@import "./components/date-picker";
+@import "./components/drop-down";
 
 @import "./layouts/header";
-@import "./layouts/footer";
 
-@import "./pages/homepage";
-@import "./pages/login";
-@import "./pages/profile";
+@import "./pages/create-employee";

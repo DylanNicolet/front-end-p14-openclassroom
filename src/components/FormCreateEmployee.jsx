@@ -2,9 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateFirstName, updateLastName, updateDateOfBirth, updateStartDate, updateStreet, updateCity, updateZipCode, updateState, updateDepartment } from "../redux/formDataSlice";
 import Dropdown from "react-dropdown";
-import "react-dropdown/style.css";
 import DatePicker from "react-date-picker";
-import Modal from "react-modal";
+import PureModal from "react-pure-modal";
+import "react-pure-modal/dist/react-pure-modal.min.css";
 
 export default function FormCreateEmployee(){
     const firstName = useSelector((state) => state.formData.firstName)
@@ -31,31 +31,51 @@ export default function FormCreateEmployee(){
         "Sales", "Marketing", "Engineering", "Human Resources", "Legal"
     ]
 
+    const [modal, setModal] = React.useState(false)
+
+    function handleSubmit(e){
+        e.preventDefault()
+        setModal(true)
+    }
+
     return(
-        <form>
+        <form className="create-employee__form">
+            <PureModal
+                isOpen={modal}
+                closeButton="x"
+                onClose={() => {
+                    setModal(false)
+                    return true
+                }}
+            >
+                <p>Employee Created</p>
+            </PureModal>
+
             <label htmlFor="firstName">First Name</label>
             <input
                 type="text" 
                 name="firstName"
-                className="text-input"
+                className="text-input name"
                 value={firstName}
                 onChange={e => dispatch(updateFirstName(e.target.value))}
+                required
             />
 
             <label htmlFor="lastName">Last Name</label>
             <input 
                 type="text"
                 name="lastName"
-                className="text-input"
+                className="text-input name"
                 value={lastName}
                 onChange={e => dispatch(updateLastName(e.target.value))}
+                required
             />
 
             <label htmlFor="dateOfBirth">Date of Birth</label>
-            <DatePicker name="dateOfBirth" value={dateOfBirth} onChange={(e) => dispatch(updateDateOfBirth(e))} />
+            <DatePicker name="dateOfBirth" value={dateOfBirth} onChange={(e) => dispatch(updateDateOfBirth(e))} calendarIcon={null} clearIcon={null} />
 
             <label htmlFor="startDate">Start Date</label>
-            <DatePicker name="startDate" value={startDate} onChange={(e) => dispatch(updateStartDate(e))} />
+            <DatePicker name="startDate" value={startDate} onChange={(e) => dispatch(updateStartDate(e))}  calendarIcon={null}  clearIcon={null}/>
 
             
 
@@ -68,6 +88,7 @@ export default function FormCreateEmployee(){
                     name="street"
                     value={street}
                     onChange={e => dispatch(updateStreet(e.target.value))}
+                    required
                 />
 
                 <label htmlFor="city">City</label>
@@ -76,6 +97,7 @@ export default function FormCreateEmployee(){
                     name="city"
                     value={city}
                     onChange={e => dispatch(updateCity(e.target.value))}
+                    required
                 />
 
                 <label htmlFor="state">State</label>
@@ -87,13 +109,14 @@ export default function FormCreateEmployee(){
                     name="zipCode"
                     value={zipCode}
                     onChange={e => dispatch(updateZipCode(e.target.value))}
+                    required
                 />
             </fieldset>
 
             <label htmlFor="department">Department</label>
-            <Dropdown name="department" options={department} value={department[0]} onChange={e => dispatch(updateDepartment(e.value))}/>
+            <Dropdown controlClassName="department-dropdown" name="department" options={department} value={department[0]} onChange={e => dispatch(updateDepartment(e.value))}/>
 
-            <button>Save</button>
+            <button className="button-save" onClick={handleSubmit}>Save</button>
         </form>
     )
 }
