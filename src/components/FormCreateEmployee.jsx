@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateFirstName, updateLastName, updateDateOfBirth, updateStartDate, updateStreet, updateCity, updateZipCode, updateState, updateDepartment } from "../redux/formDataSlice";
+import { updateEmployeeData } from "../redux/employeeDataSlice";
 import Dropdown from "react-dropdown";
 import DatePicker from "react-date-picker";
 import PureModal from "react-pure-modal";
@@ -14,6 +15,8 @@ export default function FormCreateEmployee(){
     const street = useSelector((state) => state.formData.street)
     const city = useSelector((state) => state.formData.city)
     const zipCode = useSelector((state) => state.formData.zipCode)
+    const department = useSelector((state) => state.formData.department)
+    const state = useSelector((state) => state.formData.state)
 
     const dispatch = useDispatch()
 
@@ -27,7 +30,7 @@ export default function FormCreateEmployee(){
         'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
     ];
 
-    const department = [
+    const departments = [
         "Sales", "Marketing", "Engineering", "Human Resources", "Legal"
     ]
 
@@ -36,6 +39,17 @@ export default function FormCreateEmployee(){
     function handleSubmit(e){
         e.preventDefault()
         setModal(true)
+        dispatch(updateEmployeeData({
+            firstName: firstName,
+            lastName: lastName,
+            startDate: startDate,
+            department: department,
+            dateOfBirth: dateOfBirth,
+            street: street,
+            city: city,
+            state: state,
+            zipCode: zipCode
+        }))
     }
 
     return(
@@ -51,70 +65,73 @@ export default function FormCreateEmployee(){
                 <p>Employee Created</p>
             </PureModal>
 
-            <label htmlFor="firstName">First Name</label>
-            <input
-                type="text" 
-                name="firstName"
-                className="text-input name"
-                value={firstName}
-                onChange={e => dispatch(updateFirstName(e.target.value))}
-                required
-            />
+            <section className="desktop-form">
+                <section className="name-with-dates">
+                    <label htmlFor="firstName">First Name</label>
+                    <input
+                        type="text" 
+                        name="firstName"
+                        className="text-input name"
+                        value={firstName}
+                        onChange={e => dispatch(updateFirstName(e.target.value))}
+                        required
+                    />
 
-            <label htmlFor="lastName">Last Name</label>
-            <input 
-                type="text"
-                name="lastName"
-                className="text-input name"
-                value={lastName}
-                onChange={e => dispatch(updateLastName(e.target.value))}
-                required
-            />
+                    <label htmlFor="lastName">Last Name</label>
+                    <input 
+                        type="text"
+                        name="lastName"
+                        className="text-input name"
+                        value={lastName}
+                        onChange={e => dispatch(updateLastName(e.target.value))}
+                        required
+                    />
 
-            <label htmlFor="dateOfBirth">Date of Birth</label>
-            <DatePicker name="dateOfBirth" value={dateOfBirth} onChange={(e) => dispatch(updateDateOfBirth(e))} calendarIcon={null} clearIcon={null} />
+                    <label htmlFor="dateOfBirth">Date of Birth</label>
+                    <DatePicker name="dateOfBirth" value={dateOfBirth && new Date(dateOfBirth)} onChange={(e) => dispatch(updateDateOfBirth(e.toLocaleDateString()))} calendarIcon={null} clearIcon={null}/>
 
-            <label htmlFor="startDate">Start Date</label>
-            <DatePicker name="startDate" value={startDate} onChange={(e) => dispatch(updateStartDate(e))}  calendarIcon={null}  clearIcon={null}/>
+                    <label htmlFor="startDate">Start Date</label>
+                    <DatePicker name="startDate" value={startDate && new Date(startDate)} onChange={(e) => dispatch(updateStartDate(e.toLocaleDateString()))}  calendarIcon={null}  clearIcon={null}/>
+                </section>
+                    
 
-            
+                <fieldset>
+                    <legend>Address</legend>
 
-            <fieldset>
-                <legend>Address</legend>
+                    <label htmlFor="street">Street</label>
+                    <input 
+                        type="text"
+                        name="street"
+                        value={street}
+                        onChange={e => dispatch(updateStreet(e.target.value))}
+                        required
+                    />
 
-                <label htmlFor="street">Street</label>
-                <input 
-                    type="text"
-                    name="street"
-                    value={street}
-                    onChange={e => dispatch(updateStreet(e.target.value))}
-                    required
-                />
+                    <label htmlFor="city">City</label>
+                    <input 
+                        type="text"
+                        name="city"
+                        value={city}
+                        onChange={e => dispatch(updateCity(e.target.value))}
+                        required
+                    />
 
-                <label htmlFor="city">City</label>
-                <input 
-                    type="text"
-                    name="city"
-                    value={city}
-                    onChange={e => dispatch(updateCity(e.target.value))}
-                    required
-                />
+                    <label htmlFor="state">State</label>
+                    <Dropdown name="state" options={stateNames} value={stateNames[0]} onChange={e => dispatch(updateState(e.value))}/>
 
-                <label htmlFor="state">State</label>
-                <Dropdown name="state" options={stateNames} value={stateNames[0]} onChange={e => dispatch(updateState(e.value))}/>
+                    <label htmlFor="zipCode">Zip Code</label>
+                    <input 
+                        type="text"
+                        name="zipCode"
+                        value={zipCode}
+                        onChange={e => dispatch(updateZipCode(e.target.value))}
+                        required
+                    />
+                </fieldset>
+            </section>
 
-                <label htmlFor="zipCode">Zip Code</label>
-                <input 
-                    type="text"
-                    name="zipCode"
-                    value={zipCode}
-                    onChange={e => dispatch(updateZipCode(e.target.value))}
-                    required
-                />
-            </fieldset>
-
-            <label htmlFor="department">Department</label>
-            <Dropdown controlClassName="department-dropdown" name="department" options={department} value={department[0]} onChange={e => dispatch(updateDepartment(e.value))}/>
+            <label htmlFor="department" className="department-dropdown__label">Department</label>
+            <Dropdown controlClassName="department-dropdown" name="department" options={departments} value={departments[0]} onChange={e => dispatch(updateDepartment(e.value))}/>
 
             <button className="button-save" onClick={handleSubmit}>Save</button>
         </form>

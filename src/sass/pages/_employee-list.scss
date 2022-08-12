@@ -1,19 +1,15 @@
-.page-create-employee{
+.employee-list-page {
     text-align: center;
 
-    h1{
-        font-size: 1.8rem;
+    &__title{
         color: $color-primary;
-        
     }
 }
 
-.button-view-employee{
+.button-link-home{
     border: none;
     padding: 10px 15px;
     border-radius: 6px;
-    margin-top: 30px;
-    margin-bottom: 25px;
     font-weight: 600;
     background-color: $color-secondary;
     @include btn-gradient;

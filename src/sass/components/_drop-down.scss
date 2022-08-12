@@ -18,6 +18,16 @@
 
 .department-dropdown{
   @include input-gradient;
+  @include desktop-only{
+    width: 45%;
+    transform: translateY(-60px);
+  }
+}
+
+.department-dropdown__label{
+  @include desktop-only{
+    transform: translateY(-60px);
+  }
 }
 
 .Dropdown-control:hover {
@@ -56,6 +66,8 @@
   width: 100%;
   z-index: 1000;
   -webkit-overflow-scrolling: touch;
+  transform: translateY(-60px);
+  width: 45%;
 }
 
 .Dropdown-menu .Dropdown-group > .Dropdown-title{

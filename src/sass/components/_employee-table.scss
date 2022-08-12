@@ -1,0 +1,89 @@
+/*Entire component*/
+.component-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: auto;
+    color: $color-primary;
+}
+
+/*Table only*/
+.table{
+    background-color: lightgrey;
+    width: 100%;
+    border-radius: 7px;
+    @include input-gradient;
+    border: solid 1px $color-primary;
+}
+
+.table__header-row{
+    @include btn-gradient;
+    color: white;
+}
+
+.table__header{
+    padding: 5px 15px;
+    cursor: default;
+    border-radius: 6px;
+}
+
+.table__header-filter{
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: white;
+    border: solid 1px $color-secondary;
+    border-radius: 3px;
+}
+
+.table__data-value{
+    padding: 5px;
+    color: $color-primary;
+}
+
+/*Dropdown + search*/
+.dropdown-with-search{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/*Drop-down styles*/
+.dropdown__container{
+    display: flex;
+    align-items: center;
+}
+
+.dropdown__container p{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/*Search function*/
+.search__container{
+    display: flex;
+    align-items: center;
+}
+
+.search__container input{
+    height: auto;
+    padding: 3px;
+    margin-left: 5px;
+}
+
+/*Number of pages*/
+.number-of-pages__button{
+    cursor: pointer;
+    margin-left: 5px;
+    color: $color-primary;
+    border: solid 1px $color-secondary;
+    border-radius: 3px;
+    background-color: lighten($color-secondary, 50%);
+}
+
+/*table footer*/
+.table-footer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
