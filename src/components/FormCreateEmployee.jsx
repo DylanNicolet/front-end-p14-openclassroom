@@ -38,18 +38,23 @@ export default function FormCreateEmployee(){
 
     function handleSubmit(e){
         e.preventDefault()
-        setModal(true)
-        dispatch(updateEmployeeData({
-            firstName: firstName,
-            lastName: lastName,
-            startDate: startDate,
-            department: department,
-            dateOfBirth: dateOfBirth,
-            street: street,
-            city: city,
-            state: state,
-            zipCode: zipCode
-        }))
+        if(firstName && lastName && dateOfBirth && startDate && street && city && zipCode){
+            setModal(true)
+            dispatch(updateEmployeeData({
+                firstName: firstName,
+                lastName: lastName,
+                startDate: startDate,
+                department: department,
+                dateOfBirth: dateOfBirth,
+                street: street,
+                city: city,
+                state: state,
+                zipCode: zipCode
+            })) 
+        }
+        else{
+            alert("Incomplete form! Please fill out every information before saving.")
+        }
     }
 
     return(
@@ -74,7 +79,6 @@ export default function FormCreateEmployee(){
                         className="text-input name"
                         value={firstName}
                         onChange={e => dispatch(updateFirstName(e.target.value))}
-                        required
                     />
 
                     <label htmlFor="lastName">Last Name</label>
@@ -84,7 +88,6 @@ export default function FormCreateEmployee(){
                         className="text-input name"
                         value={lastName}
                         onChange={e => dispatch(updateLastName(e.target.value))}
-                        required
                     />
 
                     <label htmlFor="dateOfBirth">Date of Birth</label>
@@ -104,7 +107,6 @@ export default function FormCreateEmployee(){
                         name="street"
                         value={street}
                         onChange={e => dispatch(updateStreet(e.target.value))}
-                        required
                     />
 
                     <label htmlFor="city">City</label>
@@ -113,7 +115,6 @@ export default function FormCreateEmployee(){
                         name="city"
                         value={city}
                         onChange={e => dispatch(updateCity(e.target.value))}
-                        required
                     />
 
                     <label htmlFor="state">State</label>
@@ -125,7 +126,6 @@ export default function FormCreateEmployee(){
                         name="zipCode"
                         value={zipCode}
                         onChange={e => dispatch(updateZipCode(e.target.value))}
-                        required
                     />
                 </fieldset>
             </section>
@@ -133,7 +133,7 @@ export default function FormCreateEmployee(){
             <label htmlFor="department" className="department-dropdown__label">Department</label>
             <Dropdown controlClassName="department-dropdown" name="department" options={departments} value={departments[0]} onChange={e => dispatch(updateDepartment(e.value))}/>
 
-            <button className="button-save" onClick={handleSubmit}>Save</button>
+            <button className="button-save" onClick={handleSubmit} type="submit">Save</button>
         </form>
     )
 }

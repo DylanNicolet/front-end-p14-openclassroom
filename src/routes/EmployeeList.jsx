@@ -22,7 +22,8 @@ export default function EmployeeList(){
         },
         {
             header: "Start Date",
-            dataKey: "startDate"
+            dataKey: "startDate",
+            isDate: true
         },
         {
             header: "Department",
@@ -30,7 +31,8 @@ export default function EmployeeList(){
         },
         {
             header: "Date of Birth",
-            dataKey: "dateOfBirth"
+            dataKey: "dateOfBirth",
+            isDate: true
         },
         {
             header: "Street",
