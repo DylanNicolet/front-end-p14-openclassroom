@@ -7,6 +7,7 @@ import DatePicker from "react-date-picker";
 import PureModal from "react-pure-modal";
 import "react-pure-modal/dist/react-pure-modal.min.css";
 
+//Component to display the create employee form. No props
 export default function FormCreateEmployee(){
     const firstName = useSelector((state) => state.formData.firstName)
     const lastName = useSelector((state) => state.formData.lastName)
@@ -20,6 +21,9 @@ export default function FormCreateEmployee(){
 
     const dispatch = useDispatch()
 
+    const [modal, setModal] = React.useState(false)
+
+    //Array of all US states for state input dropdown
     const stateNames = [
         'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut',
         'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas',
@@ -30,12 +34,12 @@ export default function FormCreateEmployee(){
         'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
     ];
 
+    //Array of All departments of the company for department dropdown
     const departments = [
         "Sales", "Marketing", "Engineering", "Human Resources", "Legal"
     ]
 
-    const [modal, setModal] = React.useState(false)
-
+    //Function to handle form submition and data dispatch to
     function handleSubmit(e){
         e.preventDefault()
         if(firstName && lastName && dateOfBirth && startDate && street && city && zipCode){

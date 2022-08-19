@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../images/logo.jpeg"
 
+//Component to display HRnet's header with logo. No props
 export default function Header(){
     return(
         <header>

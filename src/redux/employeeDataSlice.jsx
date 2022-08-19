@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//Commented data is meant for testing and demonstration purposes, uncomment to populate table with test data.
 export const EmployeeDataSlice = createSlice({
     name: "formData",
     initialState:{
