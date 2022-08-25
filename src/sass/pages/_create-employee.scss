@@ -1,0 +1,26 @@
+.page-create-employee{
+    text-align: center;
+
+    h1{
+        font-size: 1.8rem;
+        color: $color-primary;
+        
+    }
+}
+
+.button-view-employee{
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    background-color: $color-secondary;
+    @include btn-gradient;
+    cursor: pointer;
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}

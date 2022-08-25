@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap');
+
+body{
+    font-family: 'Raleway', sans-serif;
+
+    h1{
+        font-size: 1.5rem;
+    }
+
+    h2{
+        font-size: 1rem;
+    }
+
+    p{
+        font-size: 1rem;
+    }
+
+    @include desktop-only{
+        h1{
+            font-size: 1.7rem;
+        }
+    }
+}

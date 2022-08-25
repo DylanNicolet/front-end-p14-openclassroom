@@ -1,0 +1,16 @@
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+header img{
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+header h1{
+    margin-right: 70px;
+    margin-top: 35px;
+    color: $color-primary;
+}

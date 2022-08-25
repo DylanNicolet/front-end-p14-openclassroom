@@ -1,46 +1,30 @@
-# Getting Started with Create React App and Redux
+# Project 14 - Convert a jQuery library to React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+## 1. General information
+This repo contains all the source code to run the HRnet app.
+HRnet manages employee HR records and was innitially written in jQuery.
+I converted the whole app to React using only React components for performances purposes.
 
-## Available Scripts
+Github Repo for the original app:
+- [jQuery repo](https://github.com/OpenClassrooms-Student-Center/P12_Front-end)
 
-In the project directory, you can run:
+## 2. Project
 
-### `npm start`
+### 2.1 Requirements
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Convert the whole application to React.
+- Switch the sate management from local storage to a newer solution (I chose React Redux)
+- Manually convert 1 component library to React (I chose the data table library).
+- Run tests with Lighthouse to demonstrate the improvements made from converting to React.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### 2.2 Lighthouse results
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Initial jQuery results:
+<p align="center"><img src="README-media/jQuery-results.png">
 
-### `npm run build`
+Improuved React results:
+<p align="center"><img src="README-media/React-results.png">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 2.3 Conclusion
+-Converting the app to a more modern React app was the rigth decision and allowed us to create a faster, more reliable and future proof app.

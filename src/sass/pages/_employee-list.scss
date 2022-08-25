@@ -1,0 +1,22 @@
+.employee-list-page {
+    text-align: center;
+
+    &__title{
+        color: $color-primary;
+    }
+}
+
+.button-link-home{
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    background-color: $color-secondary;
+    @include btn-gradient;
+    cursor: pointer;
+
+    a{
+        text-decoration: none;
+        color: white;
+    }
+}

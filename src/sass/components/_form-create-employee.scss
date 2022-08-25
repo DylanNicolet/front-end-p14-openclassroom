@@ -1,0 +1,84 @@
+.create-employee__form{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+
+    @include desktop-only{
+        max-width: 1200px;
+    }
+
+    label{
+        margin: 12px 0px 3px 0px;
+        color: $color-primary;
+    }
+
+    fieldset{
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        @include input-gradient;
+        border: 1px solid $color-secondary;
+        border-radius: 7px;
+
+        @include desktop-only{
+            width: 45%;
+        }
+
+        input{
+            border: 1px solid $color-secondary;
+        }
+
+        legend{
+            color: $color-primary;
+        }
+    }
+
+    input{
+        height: 35px;
+        border-radius: 6px;
+        color: $color-primary;
+    }
+}
+
+.desktop-form{
+    @include desktop-only{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.name-with-dates{
+    display: flex;
+    flex-direction: column;
+    @include desktop-only{
+        width: 45%;
+    }
+    
+}
+
+.name{
+  @include input-gradient;
+  border: 1px solid $color-secondary;
+}
+
+.button-save{
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    background-color: $color-secondary;
+    color: white;
+    @include btn-gradient;
+    cursor: pointer;
+
+    @include desktop-only{
+        width: 200px;
+        margin: auto;
+    }
+}
